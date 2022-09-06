@@ -20,9 +20,6 @@ class MyApp extends StatelessWidget {
       create: (context) => ArticleProvider(ArticleService()),
       child: MaterialApp(
         title: 'Aruna Articles',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
         initialRoute: '/',
         routes: {
           '/': (context) => const ArticleListView(),

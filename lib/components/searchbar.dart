@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class Searchbar extends StatefulWidget {
@@ -55,48 +57,51 @@ class _SearchbarState extends State<Searchbar> {
 
     Widget result = Material(
       color: Colors.transparent,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Row(
-          children: [
-            Icon(
-              Icons.search,
-              color: captionColor,
-              size: 18,
-            ),
-            const SizedBox(
-              width: 8,
-            ),
-            Expanded(
-              child: Center(
-                child: TextField(
-                  focusNode: widget.focusNode,
-                  textInputAction: TextInputAction.search,
-                  controller: widget.controller,
-                  decoration: defaultDecoration,
-                  // cursorColor: focusColor,
-                  style: const TextStyle(fontSize: 13),
-                  onSubmitted: widget.onSubmitted,
-                  onChanged: widget.onChanged,
+      child: Center(
+        child: Container(
+          width: min(MediaQuery.of(context).size.width, 1024),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Row(
+            children: [
+              Icon(
+                Icons.search,
+                color: captionColor,
+                size: 18,
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              Expanded(
+                child: Center(
+                  child: TextField(
+                    focusNode: widget.focusNode,
+                    textInputAction: TextInputAction.search,
+                    controller: widget.controller,
+                    decoration: defaultDecoration,
+                    // cursorColor: focusColor,
+                    style: const TextStyle(fontSize: 13),
+                    onSubmitted: widget.onSubmitted,
+                    onChanged: widget.onChanged,
+                  ),
                 ),
               ),
-            ),
-            if (widget.controller.text.isNotEmpty)
-              IconButton(
-                icon: Icon(
-                  Icons.close,
-                  color: captionColor,
-                  size: 18,
+              if (widget.controller.text.isNotEmpty)
+                IconButton(
+                  icon: Icon(
+                    Icons.close,
+                    color: captionColor,
+                    size: 18,
+                  ),
+                  splashRadius: 20,
+                  onPressed: () {
+                    widget.controller.clear();
+                    widget.onClear();
+                  },
                 ),
-                splashRadius: 20,
-                onPressed: () {
-                  widget.controller.clear();
-                  widget.onClear();
-                },
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:aruna_articles/components/article_item.dart';
 import 'package:aruna_articles/components/searchbar.dart';
 import 'package:aruna_articles/providers/article_provider.dart';
@@ -123,7 +125,12 @@ class _ArticleListViewState extends State<ArticleListView> {
           onClear: closeSearchView,
         ),
       ),
-      body: bodyWidget,
+      body: Center(
+        child: SizedBox(
+          width: min(MediaQuery.of(context).size.width, 1024),
+          child: bodyWidget,
+        ),
+      ),
     );
   }
 }
