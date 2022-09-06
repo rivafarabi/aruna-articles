@@ -35,6 +35,7 @@ class _ArticleDetailViewState extends State<ArticleDetailView> {
                 children: [
                   Text(
                     widget.detail.title,
+                    key: const Key('detail-title'),
                     style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
@@ -45,6 +46,7 @@ class _ArticleDetailViewState extends State<ArticleDetailView> {
                   ),
                   Text(
                     widget.detail.body,
+                    key: const Key('detail-body'),
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,

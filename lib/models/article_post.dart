@@ -13,10 +13,10 @@ class ArticlePost {
 
   factory ArticlePost.fromJson(Map<String, dynamic> json) {
     return ArticlePost(
-      id: json['id'],
-      userId: json['userId'],
-      title: json['title'],
-      body: json['body'],
+      id: json['id'] ?? 0,
+      userId: json['userId'] ?? 0,
+      title: json['title'] ?? '',
+      body: json['body'] ?? '',
     );
   }
 }
