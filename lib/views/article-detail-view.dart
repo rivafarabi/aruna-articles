@@ -49,7 +49,7 @@ class _ArticleDetailViewState extends State<ArticleDetailView> {
                     key: const Key('detail-body'),
                     style: const TextStyle(
                       fontSize: 14,
-                      fontWeight: FontWeight.w700,
+                      color: Colors.black87
                     ),
                   ),
                 ],
